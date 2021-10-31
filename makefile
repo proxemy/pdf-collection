@@ -24,7 +24,15 @@ nix-pills: $(BUILD_DIR) nix-pills-content
 			sort -Vt: -k2 | cut -d: -f1 ) \
 		-o $(BUILD_DIR)/nix-pills.$(OUTPUT_FORMAT) \
 		--toc \
-		--standalone
+		--self-contained \
+		--top-level-division=chapter \
+		--wrap=preserve \
+		--variable linkcolor:blue \
+		--variable geometry:margin=2.5cm \
+		--variable fontfamiliy=Courier \
+		--metadata=title:"Nix-Pills" \
+		--metadata=lang:"en-US" \
+		--pdf-engine=xelatex
 
 nix-pills-content: nix-pills-download
 	sed \
